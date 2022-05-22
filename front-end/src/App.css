@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Atomic+Age&family=Dancing+Script&family=Nunito:wght@200&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+table, th, tr {
+  border:1px solid black;
+}
+
+.print-container{
+  margin: 20px;
+  width: 300px;
+  position: relative;
+  display: inline-block;
+  height: 60px;
+    page-break-inside: avoid;
+}
+
+.family-name{
+  font-size: 23px;
+  font-family: "dancing script";
+}
+.address-fit{
+  text-align: center;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+}
+.address-text{
+  font-size: 10px;
+  text-align: justify;
+}
+
+.flex{
+  /* display: flex;
+  flex-wrap: wrap;
+  position: relative; */
+ 
+}
