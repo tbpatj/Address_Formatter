@@ -64,7 +64,7 @@ function StyledAddress({ val, index }) {
       <div
         className={`print-container ${
           (index + 2) % 3 === 0 ? "margin-stuff" : ""
-        } ${index % 3 === 0 ? "margin-left" : ""}`}
+        }${index % 3 === 0 ? "margin-left" : ""}`}
       >
         <div className="flex-container">
           {val[1].includes("&") && (

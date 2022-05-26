@@ -84,9 +84,7 @@ tr {
   border: 1px solid black;
 }
 
-.margin-stuff{
-  /* margin: 0in 0.13in */
-}
+
 
 .print-container {
   /* margin: 0in .13in; */
@@ -173,4 +171,7 @@ tr, td, .flex-container{
 }
 .margin-left{
   margin-left: 0.2in;
+}
+.margin-stuff{
+  margin: 0in 0.13in;
 }
