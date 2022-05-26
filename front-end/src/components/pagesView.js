@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function PrintView({ data }) {
-  const [pageNum, setPageNum] = useState(0);
-  let slicedData = data.slice(pageNum * 30 + 1, (pageNum + 1) * 30 + 1);
+export default function PagesView({ data }) {
+  let pagedData = [];
 
+  for (let i = 1; i < data.length; i += 30) {
+    pagedData.push(data.slice(i, i + 30));
+  }
+  // let slicedData = data.slice(0 * 30 + 1, (0 + 1) * 30 + 1);
+
+  /** 
   function movePageNum(page) {
     if (page < 0) {
       setPageNum(0);
@@ -14,37 +19,36 @@ export default function PrintView({ data }) {
       return;
     }
     setPageNum(page);
-  }
+  }*/
+  console.log(pagedData);
 
   return (
     <>
-      <div className="top-padding"></div>
-      <div className="my-page">
-        {slicedData.map((val2, index) => {
-          return (
-            <StyledAddress
-              key={`styledAddress${index}`}
-              val={val2}
-              index={index}
-            ></StyledAddress>
-          );
-        })}
-      </div>
-      <div className="bottom-padding"></div>
-      {/* {data.map((val, index) => {
-        if (index !== 0) {
-          return <StyledAddress val={val} />;
-        }
-      })} */}
-
-      <button onClick={() => movePageNum(pageNum - 1)}>prev page</button>
-      <span> current page {pageNum} </span>
-      <button onClick={() => movePageNum(pageNum + 1)}>next page</button>
+      {pagedData.map((value, index) => {
+        return (
+          <>
+            <div className="top-padding"></div>
+            <div className="my-page">
+              {value.map((val2, index) => {
+                return (
+                  <StyledAddress
+                    key={`styledAddress${index}`}
+                    val={val2}
+                    index={index}
+                  ></StyledAddress>
+                );
+              })}
+            </div>
+            <div className="bottom-padding"></div>
+          </>
+        );
+      })}
     </>
   );
 }
 
 function StyledAddress({ val, index }) {
+  console.log(val);
   if (val[0] === null) {
     return null;
   }
@@ -60,7 +64,7 @@ function StyledAddress({ val, index }) {
       <div
         className={`print-container ${
           (index + 2) % 3 === 0 ? "margin-stuff" : ""
-        }`}
+        } ${index % 3 === 0 ? "margin-left" : ""}`}
       >
         <div className="flex-container">
           {val[1].includes("&") && (

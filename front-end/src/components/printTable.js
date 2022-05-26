@@ -1,8 +1,15 @@
 import { useState } from "react";
 
-export default function PrintView({ data }) {
+export default function PrintTable({ data }) {
   const [pageNum, setPageNum] = useState(0);
   let slicedData = data.slice(pageNum * 30 + 1, (pageNum + 1) * 30 + 1);
+  let sliceSliceData = [];
+  console.log("got here");
+
+  for (let i = 0; i + 2 < slicedData.length; i += 3) {
+    console.log(i);
+    sliceSliceData.push(slicedData.slice(i, i + 3));
+  }
 
   function movePageNum(page) {
     if (page < 0) {
@@ -17,30 +24,33 @@ export default function PrintView({ data }) {
   }
 
   return (
-    <>
-      <div className="top-padding"></div>
-      <div className="my-page">
-        {slicedData.map((val2, index) => {
-          return (
-            <StyledAddress
-              key={`styledAddress${index}`}
-              val={val2}
-              index={index}
-            ></StyledAddress>
-          );
-        })}
-      </div>
-      <div className="bottom-padding"></div>
-      {/* {data.map((val, index) => {
+    <div className="my-page-2">
+      <table className="my-table">
+        <div class="table-padding">
+          {sliceSliceData.map((row, index) => {
+            return (
+              <tr>
+                {row.map((val, index) => {
+                  return (
+                    <StyledAddress val={val} index={index}></StyledAddress>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </div>
+        {/* {data.map((val, index) => {
         if (index !== 0) {
           return <StyledAddress val={val} />;
         }
       })} */}
-
-      <button onClick={() => movePageNum(pageNum - 1)}>prev page</button>
-      <span> current page {pageNum} </span>
-      <button onClick={() => movePageNum(pageNum + 1)}>next page</button>
-    </>
+      </table>
+      <div>
+        <button onClick={() => movePageNum(pageNum - 1)}>prev page</button>
+        <span> current page {pageNum} </span>
+        <button onClick={() => movePageNum(pageNum + 1)}>next page</button>
+      </div>
+    </div>
   );
 }
 
@@ -57,7 +67,7 @@ function StyledAddress({ val, index }) {
     val[5] !== null
   )
     return (
-      <div
+      <td
         className={`print-container ${
           (index + 2) % 3 === 0 ? "margin-stuff" : ""
         }`}
@@ -82,6 +92,6 @@ function StyledAddress({ val, index }) {
             {val[5].toUpperCase()} {val[6].toUpperCase()} {val[7].toUpperCase()}
           </div>
         </div>
-      </div>
+      </td>
     );
 }

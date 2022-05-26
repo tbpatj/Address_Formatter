@@ -1,78 +1,176 @@
 @import url('https://fonts.googleapis.com/css2?family=Atomic+Age&family=Dancing+Script&family=Nunito:wght@200&display=swap');
 
+@page {
+  margin: 0px;
+  padding: 0px; 
+}
+@media print {
+  body {margin-top: 0px; margin-bottom: 0px; 
+        margin-left: 0mm; margin-right: 0mm}
+}
+
+.my-page{
+  margin: 0px;
+  padding: 0px; 
+  /* padding: 0.5in 0.2in; */
+  gap: 0px;
+  width: 8.5in;
+  height: 10in;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: start;
+  justify-content: start;
+}
+
 .App {
   text-align: center;
+  margin: 0px;
+  padding: 0px; 
 }
 
 .App-logo {
+  margin: 0px;
+  padding: 0px; 
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
+    margin: 0px;
+  padding: 0px; 
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
 .App-header {
+  margin: 0px;
+  padding: 0px; 
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: hidden;
 }
 
 .App-link {
+  margin: 0px;
+  padding: 0px; 
   color: #61dafb;
+}
+body, html{
+  margin: 0px;
+  padding: 0px;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 
-table, th, tr {
-  border:1px solid black;
+table,
+th,
+tr {
+  margin: 0px;
+  padding: 0px; 
+  border: 1px solid black;
 }
 
-.print-container{
-  margin: 20px;
-  width: 300px;
+.margin-stuff{
+  /* margin: 0in 0.13in */
+}
+
+.print-container {
+  /* margin: 0in .13in; */
+  width: 2.62in;
   position: relative;
-  display: inline-block;
-  height: 60px;
-    page-break-inside: avoid;
+  height: 1in;
+  min-height: 1in;
+  max-height: 1in;
+  margin: 0px;
+  padding: 0px;
 }
 
-.family-name{
+.family-name {
+  width: 2.62in;
+  height: 0.28in;
   font-size: 23px;
   font-family: "dancing script";
-}
-.address-fit{
   text-align: center;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  width: 300px;
-}
-.address-text{
-  font-size: 10px;
-  text-align: justify;
+  margin: 0px;
+  padding: 0px; 
 }
 
-.flex{
+.address-fit {
+  margin-top: 0.1in;
+  width: 2.62in;
+  height: 0.3in;
+  text-align: center;
+  align-items: center;
+
   /* display: flex;
-  flex-wrap: wrap;
-  position: relative; */
- 
+  justify-content: start;
+  flex-direction: column; */
+}
+.flex-container{
+   display: flex;
+  justify-content: center;
+  
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  margin:0px;
+  padding: 0px;
+  width: 2.62in;
+  height: 1in;
+  max-height: 1in;
+  max-width: 2.62in;
+}
+
+.address-text {
+  font-size: 10px;
+  height: 0.1in;
+  width: 2.62in;
+  text-align: center;
+}
+
+.top-padding{
+  height: 0.5in;
+}
+.bottom-padding{
+  height: 0.5in;
+}
+
+/* table stuff */
+
+tr, td, .flex-container{
+  height: 1in !important;
+  max-height: 1in;
+  min-height: 1in;
+  overflow: hidden;
+}
+.my-table{
+  width: 8.5in;
+  min-width: 8.5in;
+  max-height: 10in;
+  height: 10in;
+  overflow: hidden;
+  /* margin: 0.5in .2in; */
+}
+.table-padding{
+  /* padding-top: 0.5in;
+  padding-bottom: 0.5in;
+  padding-left: 0.2in;
+  padding-right: 0.2in; */
+}
+.margin-left{
+  margin-left: 0.2in;
 }
